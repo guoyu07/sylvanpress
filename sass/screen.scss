@@ -1,0 +1,558 @@
+/* Welcome to Compass.
+ * In this file you should write your main styles. (or centralize your imports)
+ * Import this file using the following HTML or equivalent:
+ * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
+
+@import "compass";
+@import "compass/reset";
+
+// Colors
+$navy: rgb(3,29,42);
+$navy-light: rgb(36,81,103);
+$blue: rgb(0,180,255);
+$green: rgb(168,198,24);
+$orange: rgb(255,126,0);
+$white: rgb(255,255,255);
+$almost-white: rgb(242,242,242);
+$black: rgb(30,30,30);
+
+// Fonts
+$font-primary: "myriad-pro", "Myriad Pro", "Myriad", "Avenir Next", sans-serif;
+$font-secondary: "minion-pro", "Minion Pro", "Minion", "Hoefler Text", "Georgia", serif;
+
+// Breakpoints
+$screen-sm: 20em;
+$screen-md: 48em;
+$screen-lg: 76.5em;
+$screen-xl: 114em;
+
+* { box-sizing: border-box; }
+
+body {
+  background: $navy;
+  color: $white;
+  font-family: $font-primary;
+  font-size: 13pt;
+  @media (min-width: $screen-lg){
+    font-size: 15pt;
+  }
+}
+
+h1, h2, h3, h4, h5 {
+  color: $green;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 1em;
+  text-shadow: 0 0.125em 0 rgba(0,0,0,0.25);
+}
+
+h1 {
+  font-size: 2.25em;
+  margin-bottom: 1em;
+}
+h2 {
+  font-size: 2em;
+  margin-bottom: 0.75em;
+}
+h3 {
+  font-size: 1.75em;
+  margin-bottom: 0.575em;
+}
+h4 {
+  font-size: 1.5em;
+  margin-bottom: 0.5em;
+  text-shadow: none;
+  color: $blue;
+}
+h5 {
+  font-size: 1.25em;
+  margin-bottom: 0.5em;
+  text-shadow: none;
+  color: $blue;
+}
+
+p {
+  font-family: $font-secondary;
+  line-height: 1.4;
+  margin-bottom: 1em;
+}
+
+ul {
+  line-height: 1.4;
+  margin-bottom: 1em;
+}
+
+a {
+  text-decoration: none;
+  color: $blue;
+  &:hover { color: $green; }
+}
+
+img { max-width: 100%; height: auto; }
+
+.large {
+  font-size: 1.33em;
+  line-height: 1;
+}
+
+// Tweak for line-height of FontAwesome icons
+.fa {
+  p &,
+  li & { line-height: 0.8;}
+}
+
+// Forms
+.form-group {
+  margin-bottom: 1em;
+  .control-label {
+    font-size: 0.8em;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 0.25em;
+  }
+  .form-control {
+    font-family: $font-primary;
+    font-size: 16px;
+    width: 100%;
+    padding: 0.5em 0.75em 0.4em;
+    background: $navy;
+    color: $white;
+    border: 1px solid $navy-light;
+  }
+  input.form-control {
+    box-shadow: 0 0.5em 1em rgba(0,0,0,0.5) inset;
+    &:focus, &:active { background: darken($navy, 10%); }
+  }
+  select.form-control {
+    -webkit-appearance: menulist-button;
+    box-shadow: 0 -0.5em 1em rgba(0,0,0,0.5) inset;
+  }
+}
+
+// Buttons
+.button {
+  @include transition(background 0.15s linear);
+  -webkit-appearance: none;
+  font-family: $font-primary;
+  display: inline-flex;
+  font-size: 0.8em;
+  background: $navy;
+  color: $white;
+  border: 0;
+  line-height: 1;
+  padding: 0.6em 2em 0.45em;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: bold;
+  border-radius: 5em;
+  .wf-active & {
+    padding: 0.6em 2em 0.6em;
+  }
+  &:hover {
+    background: $green;
+    color: $white;
+  }
+  &.button-primary {
+    background: $blue;
+    &:hover { background: $orange; }
+  }
+  &.button-cta {
+    background: $orange;
+    &:hover { background: $blue; }
+  }
+  &.button-normal {
+    background: $green;
+    &:hover { background: $blue; }
+  }
+  &.button-disabled {
+    background: $navy-light;
+    color: $navy;
+    &:hover { cursor: disabled; }
+  }
+}
+
+header[role=banner]{
+  position: relative;
+  .nav li.home {
+    text-align: left;
+  }
+  .nav li:not(.home) {
+    display: none;
+    @media (min-width: $screen-md){
+      display: block !important;
+    }
+  }
+  .nav-toggle {
+    position: absolute;
+    right: 1em; top: 1em;
+    @media (min-width: $screen-md){
+      display: none;
+    }
+  }
+}
+
+// Main navigation
+.nav {
+  line-height: 1;
+  margin: 0;
+  display: flex;
+  padding: 0 5%;
+  text-align: center;
+  flex-direction: column;
+  @media (min-width: $screen-md){
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+  }
+  li {
+    padding: 1em;
+    &.home {
+      flex-grow: 1;
+      padding: 0.5em 0;
+      img { max-width: 10em; }
+    }
+    &:last-child {
+      @media (min-width: $screen-md){ padding: 1em 0 1em 1em; }
+    }
+  }
+  a {
+    color: $white;
+    font-weight: bold;
+    text-transform: uppercase;
+    &:hover { color: $blue; }
+  }
+}
+
+// Navigation tree
+.nav-tree {
+  font-size: 0.75em;
+  line-height: 1.6;
+  li {
+    ul { margin: 0; }
+    li { padding-left: 1em; }
+    a {
+      text-transform: uppercase;
+      letter-spacing: 0.125em;
+    }
+  }
+}
+
+// Homepage hero
+.hero-home {
+  position: relative;
+  text-align: center;
+  width: 100%;
+  height: 90vh;
+  min-height: 36.25em;
+  @media (max-width: $screen-md){
+    padding: 2em 0;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  align-content: stretch;
+  background: url(../images/home-hero.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  box-shadow: 0 0 3em rgba(0,0,0,0.33),
+              0 1px 0 rgba(255,255,255,0.1) inset,
+              0 -1px 0 rgba(255,255,255,0.1) inset;
+  &:hover {
+    &:after {
+      bottom: 1em;
+      opacity: 0.75;
+    }
+  }
+  &:after {
+    transition: all 0.2s ease;
+    content: "SCROLL FOR MORE";
+    font-size: 0.75em;
+    letter-spacing: 0.125em;
+    position: absolute;
+    bottom: 1.5em;
+    left: 50%;
+    @include transform(translate(-50%,0));
+    opacity: 0;
+  }
+  .content {
+    width: 100%;
+    padding: 0 5%;
+    text-align: center;
+  }
+  .intro {
+    margin: 0 auto 1em;
+    font-size: 1.875em;
+    font-style: italic;
+    max-width: 22em;
+  }
+  .button {
+    font-size: 1.25em;
+  }
+}
+
+// Home page content
+.home-content {
+  background: url(../images/topo-white.png) 50% 50% repeat $navy;
+  background-size: auto;
+  padding-bottom: 1em;
+}
+
+// Home page mission statement
+.mission {
+  @include clearfix;
+  padding: 2em 5% 1em;
+  margin: 0 auto;
+  max-width: 50em;
+  @media (min-width: $screen-lg){
+    padding: 3em 5% 3em;
+  }
+  img {
+    display: block;
+    margin: 0 auto 1em;
+    max-width: 6em;
+    @media (min-width: $screen-md){
+      float: left;
+      width: 30%;
+      margin: 0 5%;
+    }
+  }
+  p {
+    @media (min-width: $screen-md){
+      padding-top: 3em;
+      margin-left: 10%;
+    }
+  }
+}
+
+// 3-column callouts
+.callouts {
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 3em;
+  @media (min-width: $screen-md) {
+    flex-direction: row;
+    padding: 0 5%;
+    margin: 2em 0;
+  }
+  .callout {
+    text-align: center;
+    margin-bottom: 2em;
+    padding: 1em 5% 0;
+    img { margin-bottom: 0.5em; }
+    @media (min-width: $screen-md) {
+      width: 33.3333%;
+      padding: 0 1.5%;
+    }
+  }
+}
+
+
+// Article page hero
+.hero-page {
+  position: relative;
+  padding: 3em 5%;
+  background: url(../images/home-hero.jpg) 50% 50% no-repeat;
+  background-size: cover;
+  position: relative;
+  box-shadow: 0 1em 2em rgba(0,0,0,0.33),
+              0 1px 0 rgba(255,255,255,0.1) inset,
+              0 -1px 0 rgba(255,255,255,0.1) inset;
+  @media (min-width: $screen-md){ padding: 3.5em 5%; }
+  @media (min-width: $screen-lg){ padding: 4em 5%; }
+  @media (min-width: $screen-xl){ padding: 7em 5%; }
+  h2 {
+    font-size: 2.25em;
+    margin-bottom: 0.25em;
+    @media (min-width: $screen-md){
+      font-size: 3.125em;
+      text-shadow: 0 0.075em 0 rgba(0,0,0,0.25);
+    }
+    @media (min-width: $screen-lg){
+      margin-bottom: 0;
+      font-size: 4em;
+      text-shadow: 0 0.05em 0 rgba(0,0,0,0.25);
+    }
+  }
+  .subhead {
+    font-style: italic;
+    margin: 0;
+    @media (min-width: $screen-md) {
+      font-size: 1.125em;
+    }
+    @media (min-width: $screen-lg) {
+      font-size: 1.25em;
+      margin-top: 0.5em;
+    }
+    @media (min-width: $screen-xl) {
+      font-size: 1.5em;
+      margin-top: 1em;
+      padding-left: 5%;
+      max-width: 50%;
+    }
+  }
+}
+
+// Article page content
+.page {
+  background: url(../images/topo-white.png) 50% 50% repeat $navy;
+  padding: 0 5%;
+}
+.page-content {
+  @include clearfix;
+  position: relative;
+  background: $almost-white;
+  color: $black;
+}
+
+.breadcrumbs {
+  background: $navy;
+  border-bottom: 0.25em solid $green;
+}
+
+.breadcrumb-trail {
+  display: none;
+  @media (min-width: $screen-md){
+    display: inline-block;
+  }
+  font-size: 0.8em;
+  margin-bottom: 0;
+  li {
+    display: inline-block;
+    margin: 0;
+    padding: 1em 1em;
+    a:after {
+      content: '\f101';
+      font-family: "FontAwesome";
+      color: $almost-white;
+      margin-left: 1em;
+    }
+    &:first-child {
+    }
+    &:last-child {
+      a { color: $white; }
+      a:after { content: ""; }
+    }
+  }
+}
+
+article {
+  padding: 2em 5% 1em;
+  @media (min-width: $screen-md){
+    float: left;
+    width: 66.666%;
+  }
+  p:first-child {
+    font-size: 1.25em;
+    @media (min-width: $screen-md){ font-size: 1.5em; }
+    @media (min-width: $screen-lg){ font-size: 1.625em; }
+  }
+}
+
+figure {
+  margin-bottom: 1em;
+  figcaption {
+    font-family: $font-secondary;
+    font-style: italic;
+    font-size: 0.9em;
+    color: #686868;
+    margin: 0.5em 0 0;
+  }
+}
+
+aside {
+  font-size: 0.8em;
+  padding: 2em 5% 3em;
+  border-top: 1px solid #CCC;
+  @media (min-width: $screen-md){
+    float: right;
+    width: 33.333333%;
+    max-width: 25em;
+    border-top: 0;
+    padding: 1em 5% 3em;
+    margin-top: 2em;
+    border-left: 1px solid #CCC;
+  }
+  section {
+    margin-bottom: 3em;
+    &:last-child { margin-bottom: 0; }
+  }
+}
+
+// Gallery pages
+.gallery-content {
+  @include clearfix;
+  position: relative;
+  background: $almost-white;
+  color: $black;
+}
+
+.gallery {
+  margin-top: 1em;
+}
+
+.gallery-entry {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1em;
+  @media (min-width: $screen-md){
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+.gallery-entry-image {
+  text-align: center;
+  @media (min-width: $screen-md){
+    width: 66.6666%;
+    .gallery-entry:nth-child(even) & {
+      order: 1;
+    }
+    img { width: 100%; }
+  }
+  @media (min-width: $screen-lg){ width: 50%; }
+}
+.gallery-entry-description {
+  padding: 0.5em 5% 0;
+  font-style: italic;
+  @media (min-width: $screen-md) {
+    padding: 10%;
+    p { max-width: 20em; }
+    .gallery-entry:nth-child(even) & {
+      text-align: right;
+    }
+  }
+}
+
+
+
+// Global footer
+footer[role=banner]{
+  position: relative;
+  box-shadow: 0 0 3em rgba(0,0,0,0.66);
+  padding: 2em 5% 1em;
+  border-top: 0.5em solid $green;
+  display: flex;
+  flex-direction: column;
+  @media (min-width: $screen-md){
+    flex-direction: row;
+    padding: 3em 5% 1em;
+  }
+  a {
+    color: $white;
+    &:hover { color: $blue; }
+  }
+  .copyright {
+    font-family: $font-primary;
+    font-size: 0.8em;
+    margin: 2em 0;
+    font-weight: bold;
+  }
+  .footer-section {
+    margin-bottom: 1em;
+    h5 img { max-width: 10em; }
+    @media (min-width: $screen-md) {
+      width: 33.3333%;
+      padding: 3%;
+    }
+  }
+}
