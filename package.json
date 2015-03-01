@@ -1,0 +1,8 @@
+{
+  "name": "sylvanpress",
+  "version": "0.0.0",
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.8.11"
+  }
+}
