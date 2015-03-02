@@ -24,3 +24,17 @@ gulp.task('compass', function () {
       .pipe(minify())
       .pipe(gulp.dest('./css'));
 })
+
+// Serve task:
+// clean temp and min directories, complile everything in bower_components,
+// minify JS, compile compass, and reload browser on changes.
+gulp.task('serve', ['compass'], function() {
+  browserSync({
+    proxy: "192.168.33.10"
+  });
+  gulp.watch("./sass/*.scss", ['compass']);
+  gulp.watch("./css/screen.css").on('change', reload);
+});
+
+// Serve by default.
+gulp.task('default', ['serve']);
