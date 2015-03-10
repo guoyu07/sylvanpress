@@ -9,7 +9,7 @@
   <div class="hero-home">
     <div class="content">
       <h1><img src="<?=get_template_directory_uri()?>/images/logo-white-large.png" alt="Sylvan Gardens Landscape Contractors"></h1>
-      <p class="intro">Sylvan Gardens is a commercial and residential landscape maintenance and installation company based in Pittsburgh,&nbsp;PA.</p>
+      <p class="intro"><?php the_field('company_description')?></p>
       <a href="#" class="button button-primary">See Our Work</a>
     </div>
   </div>
@@ -41,4 +41,3 @@
     </div>
   </div>
 
-  
