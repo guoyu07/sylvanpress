@@ -6,22 +6,21 @@
  */
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
-	</header><!-- .entry-header -->
 
-	<div class="entry-content">
-		<?php the_content(); ?>
-		<?php
-			wp_link_pages( array(
-				'before' => '<div class="page-links">' . __( 'Pages:', 'sylvanpress' ),
-				'after'  => '</div>',
-			) );
-		?>
-	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-		<?php edit_post_link( __( 'Edit', 'sylvanpress' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-## -->
+<div class="hero-page">
+	<?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
+    <p class="subhead">Some secondary text if necessary. Lorem ipsum dolor sit amet.</p>
+</div>
+
+<div class="page">
+	<div class="page-content">
+  		<div class="breadcrumbs">
+  			<ul class="breadcrumb-trail"></ul>
+  		</div>
+  		<article id="post-<?php the_ID(); ?>">
+  			<?php the_content(); ?>
+  		</article>
+
+  	</div>
+</div>

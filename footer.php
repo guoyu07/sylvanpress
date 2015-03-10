@@ -8,16 +8,81 @@
  */
 ?>
 
-	</div><!-- #content -->
 
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'http://wordpress.org/', 'sylvanpress' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'sylvanpress' ), 'WordPress' ); ?></a>
-			<span class="sep"> | </span>
-			<?php printf( __( 'Theme: %1$s by %2$s.', 'sylvanpress' ), 'Sylvan Gardens Landscaping', '<a href="http://www.acklindesign.com" rel="designer">James Acklin</a>' ); ?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+<footer role="banner">
+	<div class="footer-section">
+		<h5><img src="<?=get_template_directory_uri()?>/images/logo-white-large.png" alt=""></h5>
+		<ul class="nav-tree">
+			<li><a href="#">Home</a></li>
+			<li>
+				<a href="#">Company</a>
+				<ul>
+					<li><a href="#">Profile</a></li>
+					<li><a href="#">Approach</a></li>
+					<li><a href="#">People</a></li>
+					<li><a href="#">Awards</a></li>
+					<li><a href="#">Employment</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Services</a>
+				<ul>
+					<li><a href="#">Commercial</a></li>
+					<li><a href="#">Residential</a></li>
+					<li><a href="#">Design & Planning</a></li>
+				</ul>
+			</li>
+			<li>
+				<a href="#">Portfolio</a>
+				<ul>
+					<li><a href="#">Commercial</a></li>
+					<li><a href="#">Residential</a></li>
+				</ul>
+			</li>
+			<li><a href="#">Blog</a></li>
+			<li><a href="#">Contact</a></li>
+		</ul>
+		<p class="copyright">All content ©2015 Sylvan Gardens Landscaping, LLC.</p>
+	</div>
+	<div class="footer-section">
+		<h5>Need a Quick Estimate?</h5>
+		<form>
+			<div class="form-group">
+				<label class="control-label">Name</label>
+				<input type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label class="control-label">Email Address</label>
+				<input type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label class="control-label">Phone Number</label>
+				<input type="text" class="form-control">
+			</div>
+			<div class="form-group">
+				<label class="control-label">Area</label>
+				<select class="form-control">
+					<option value=""></option>
+				</select>
+			</div>
+			<div class="form-group">
+				<label class="control-label">Type of Property</label>
+				<select class="form-control">
+					<option value=""></option>
+				</select>
+			</div>
+			<input type="submit" class="button button-disabled" disabled value="Let's Get in Touch">
+		</form>
+	</div>
+	<div class="footer-section">
+		<h5>Contact</h5>
+		<ul>
+			<li><i class="fa fa-fw fa-keyboard-o"></i> <a href="#">Email Us</a></li>
+			<li><i class="fa fa-fw fa-phone-square"></i> (412) 366-7945</li>
+		</ul>
+	</div>
+</footer>
+
 
 <?php wp_footer(); ?>
 
