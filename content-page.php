@@ -7,7 +7,11 @@
 ?>
 
 
-<div class="hero-page">
+<?php if(has_post_thumbnail()): ?>
+  <div class="hero-page custom-background" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>);">
+<?php else: ?>
+  <div class="hero-page">
+<?php endif; ?>
   <?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
   <?php if(get_field('page_subheading')): ?>
     <p class="subhead"><?php the_field('page_subheading'); ?></p>

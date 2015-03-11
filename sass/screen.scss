@@ -360,6 +360,15 @@ header[role=banner]{
   @media (min-width: $screen-md){ padding: 3.5em 5%; }
   @media (min-width: $screen-lg){ padding: 4em 5%; }
   @media (min-width: $screen-xl){ padding: 7em 5%; }
+  &.custom-background {
+    h2, p { position: relative; }
+    &:before {
+      content: "";
+      width: 100%; height: 100%;
+      position: absolute; top: 0px; left: 0px;
+      background: rgba(0,0,0,0.5);
+    }
+  }
   h2 {
     font-size: 2.25em;
     margin-bottom: 0.25em;
