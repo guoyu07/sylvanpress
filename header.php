@@ -22,7 +22,15 @@
 
   <header role="banner">
     <ul class="nav" role="navigation">
-      <li class="home"><a href="/"><img src="<?=get_template_directory_uri()?>/images/logo-white-large.png" alt="Home"></a></li>
+      <li class="home">
+        <a href="/">
+          <?php if(is_front_page()): ?>
+            <img src="<?=get_template_directory_uri()?>/images/logo-tiny.png" alt="Home">
+          <?php else: ?>
+            <img src="<?=get_template_directory_uri()?>/images/logo-white-large.png" alt="Home">
+          <?php endif; ?>
+        </a>
+      </li>
       <?php wp_nav_menu( array( 'items_wrap' => '%3$s', 'container'=> false, 'menu' => 'Main Navigation' ) ); ?>
     </ul>
   </header>
