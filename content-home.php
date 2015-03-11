@@ -19,25 +19,16 @@
       <img src="<?=get_template_directory_uri()?>/images/plant-drawing.png" alt="">
       <p><?php the_field('company_mission'); ?></p>
     </div>
+    <?php if(have_rows('benefit_callouts')): ?>
     <div class="callouts">
-      <div class="callout">
-        <img src="<?=get_template_directory_uri()?>/images/plant-circle-1.png" alt="">
-        <h3>Experience</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a href="" class="button button-cta">Learn More About Us</a>
-      </div>
-      <div class="callout">
-        <img src="<?=get_template_directory_uri()?>/images/plant-circle-2.png" alt="">
-        <h3>Innovation</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a href="" class="button button-cta">Explore Our Process</a>
-      </div>
-      <div class="callout">
-        <img src="<?=get_template_directory_uri()?>/images/plant-circle-3.png" alt="">
-        <h3>Service</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        <a href="" class="button button-cta">See Our Capabilities</a>
-      </div>
+      <?php while( have_rows('benefit_callouts') ): the_row(); ?>
+        <div class="callout">
+          <img src="<?php the_sub_field('callout_image'); ?>" alt="">
+          <h3><?php the_sub_field('callout_title'); ?></h3>
+          <p><?php the_sub_field('callout_text'); ?></p>
+          <a href="<?php the_sub_field('callout_button_link'); ?>" class="button button-cta"><?php the_sub_field('callout_button_text'); ?></a>
+        </div>
+      <?php endwhile; ?>
     </div>
+    <?php endif; ?>
   </div>
-
