@@ -13,34 +13,7 @@
 	<div class="footer-section">
 		<h5><img src="<?=get_template_directory_uri()?>/images/logo-white-large.png" alt=""></h5>
 		<ul class="nav-tree">
-			<li><a href="#">Home</a></li>
-			<li>
-				<a href="#">Company</a>
-				<ul>
-					<li><a href="#">Profile</a></li>
-					<li><a href="#">Approach</a></li>
-					<li><a href="#">People</a></li>
-					<li><a href="#">Awards</a></li>
-					<li><a href="#">Employment</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="#">Services</a>
-				<ul>
-					<li><a href="#">Commercial</a></li>
-					<li><a href="#">Residential</a></li>
-					<li><a href="#">Design & Planning</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="#">Portfolio</a>
-				<ul>
-					<li><a href="#">Commercial</a></li>
-					<li><a href="#">Residential</a></li>
-				</ul>
-			</li>
-			<li><a href="#">Blog</a></li>
-			<li><a href="#">Contact</a></li>
+			<?php wp_nav_menu( array( 'items_wrap' => '%3$s', 'container'=> false, 'menu' => 'Footer Navigation' ) ); ?>
 		</ul>
 		<p class="copyright">All content ©2015 Sylvan Gardens Landscaping, LLC.</p>
 	</div>
