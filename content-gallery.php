@@ -16,9 +16,14 @@
 
 <div class="page">
   <div class="gallery-content">
-    <div class="breadcrumbs">
-      <ul class="breadcrumb-trail"></ul>
-    </div>
+    <?php
+      $args = array(
+        'show_browse' => 'false',
+        'container' => 'div',
+        'separator' => '&raquo;'
+      );
+      breadcrumb_trail($args);
+    ?>
     <?php if(have_rows('gallery_content')): ?>
       <div class="gallery" id="post-<?php the_ID(); ?>">
         <?php while(have_rows('gallery_content')): the_row(); ?>

@@ -412,26 +412,15 @@ header[role=banner]{
 .breadcrumb-trail {
   display: none;
   @media (min-width: $screen-md){
-    display: inline-block;
+    display: block;
   }
   font-size: 0.8em;
   margin-bottom: 0;
-  li {
+  color: $white;
+  a, span.trail-end {
     display: inline-block;
     margin: 0;
     padding: 1em 1em;
-    a:after {
-      content: '\f101';
-      font-family: "FontAwesome";
-      color: $almost-white;
-      margin-left: 1em;
-    }
-    &:first-child {
-    }
-    &:last-child {
-      a { color: $white; }
-      a:after { content: ""; }
-    }
   }
 }
 

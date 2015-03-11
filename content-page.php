@@ -16,9 +16,14 @@
 
 <div class="page">
   <div class="page-content">
-    <div class="breadcrumbs">
-      <ul class="breadcrumb-trail"></ul>
-    </div>
+    <?php
+      $args = array(
+        'show_browse' => 'false',
+        'container' => 'div',
+        'separator' => '&raquo;'
+      );
+      breadcrumb_trail($args);
+    ?>
     <article id="post-<?php the_ID(); ?>">
       <?php the_content(); ?>
     </article>
