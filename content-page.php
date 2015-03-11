@@ -9,7 +9,9 @@
 
 <div class="hero-page">
   <?php the_title( '<h2 class="entry-title">', '</h2>' ); ?>
-  <p class="subhead">Some secondary text if necessary. Lorem ipsum dolor sit amet.</p>
+  <?php if(get_field('page_subheading')): ?>
+    <p class="subhead"><?php the_field('page_subheading'); ?></p>
+  <?php endif; ?>
 </div>
 
 <div class="page">
