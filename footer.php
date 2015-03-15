@@ -19,33 +19,7 @@
 	</div>
 	<div class="footer-section">
 		<h5>Need a Quick Estimate?</h5>
-		<form>
-			<div class="form-group">
-				<label class="control-label">Name</label>
-				<input type="text" class="form-control">
-			</div>
-			<div class="form-group">
-				<label class="control-label">Email Address</label>
-				<input type="text" class="form-control">
-			</div>
-			<div class="form-group">
-				<label class="control-label">Phone Number</label>
-				<input type="text" class="form-control">
-			</div>
-			<div class="form-group">
-				<label class="control-label">Area</label>
-				<select class="form-control">
-					<option value=""></option>
-				</select>
-			</div>
-			<div class="form-group">
-				<label class="control-label">Type of Property</label>
-				<select class="form-control">
-					<option value=""></option>
-				</select>
-			</div>
-			<input type="submit" class="button button-disabled" disabled value="Let's Get in Touch">
-		</form>
+		<?php echo do_shortcode( '[contact-form-7 id="74" title="Contact form 1"]' ); ?>
 	</div>
 	<div class="footer-section">
 		<h5>Contact</h5>
