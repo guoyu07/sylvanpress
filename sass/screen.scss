@@ -521,7 +521,16 @@ aside {
   }
 }
 
-
+.before-after {
+  flex-direction: column;
+  @media (min-width: $screen-md){
+    .gallery-entry-image { width: 100%; }
+    .gallery-entry-description {
+      text-align: center;
+      padding: 1em;
+    }
+  }
+}
 
 // Global footer
 footer[role=banner]{

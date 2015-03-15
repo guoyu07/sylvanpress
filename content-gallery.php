@@ -31,7 +31,7 @@
     <?php if(have_rows('gallery_content')): ?>
       <div class="gallery" id="post-<?php the_ID(); ?>">
         <?php while(have_rows('gallery_content')): the_row(); ?>
-          <div class="gallery-entry">
+          <div class="gallery-entry <?php if(get_sub_field('before_after')){ echo 'before-after'; } ?>">
             <div class="gallery-entry-image">
               <img src="<?php the_sub_field('gallery_entry_image'); ?>" alt="">
             </div>
