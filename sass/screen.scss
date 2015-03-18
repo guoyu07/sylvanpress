@@ -230,7 +230,10 @@ header[role=banner]{
   line-height: 1.6;
   li {
     &.current_page_item {
-      a { color: $navy; }
+      a {
+        color: $navy;
+        footer & { color: $green; }
+      }
     }
     ul { margin: 0; }
     li { padding-left: 1em; }
