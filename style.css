@@ -15,8 +15,3 @@ Tags: custom
 @import "css/screen.css";
 @import "css/ie.css";
 @import "css/print.css";
-
-blockquote p:first-child {
-	font-size: 1em;
-	font-style: italic;
-}
