@@ -8,22 +8,25 @@
  */
 
 get_header(); ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
+<div class="hero-page">
+	<?php
+		the_archive_title( '<h2 class="page-title">', '</h2>' );
+		the_archive_description( '<p class="subhead">', '</p>' );
+	?>
+</div>
+<div class="page">
+	<div class="page-content">
+    <?php
+      $args = array(
+        'show_browse' => 'false',
+        'container' => 'div',
+        'separator' => '&raquo;'
+      );
+      breadcrumb_trail($args);
+    ?>
 		<?php if ( have_posts() ) : ?>
-
-			<header class="page-header">
-				<?php
-					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					the_archive_description( '<div class="taxonomy-description">', '</div>' );
-				?>
-			</header><!-- .page-header -->
-
 			<?php /* Start the Loop */ ?>
 			<?php while ( have_posts() ) : the_post(); ?>
-
 				<?php
 					/* Include the Post-Format-specific template for the content.
 					 * If you want to override this in a child theme, then include a file
@@ -31,19 +34,13 @@ get_header(); ?>
 					 */
 					get_template_part( 'content', get_post_format() );
 				?>
-
 			<?php endwhile; ?>
-
 			<?php the_posts_navigation(); ?>
-
 		<?php else : ?>
-
 			<?php get_template_part( 'content', 'none' ); ?>
-
 		<?php endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
+	</div>
+</div>
 
 <?php get_sidebar(); ?>
 <?php get_footer(); ?>
