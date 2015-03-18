@@ -226,8 +226,12 @@ header[role=banner]{
 // Navigation tree
 .nav-tree {
   font-size: 0.75em;
+  aside & { font-size: 0.9em; }
   line-height: 1.6;
   li {
+    &.current_page_item {
+      a { color: $navy; }
+    }
     ul { margin: 0; }
     li { padding-left: 1em; }
     a {

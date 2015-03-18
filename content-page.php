@@ -31,8 +31,31 @@
     <article id="post-<?php the_ID(); ?>">
       <?php the_content(); ?>
     </article>
-    <?php if(have_rows('sidebar_blocks')): ?>
-      <aside>
+    <aside>
+      <section role="navigation">
+        <h4>In This Section</h4>
+        <ul class="nav-tree">
+          <?php
+            global $post;
+            $current_page_parent = ( $post->post_parent ? $post->post_parent : $post->ID );
+            wp_list_pages( array(
+              'title_li' => '',
+              'child_of' => $current_page_parent,
+              'depth' => '1' )
+            );
+          ?>
+        </ul>
+        <?php
+          // $id = get_the_ID();
+          // $args = array(
+          //   'child_of' => $id,
+          //   'title_li' => null,
+          //   'sort_column' => 'menu_order',
+          // );
+          // wp_list_pages($args);
+        ?>
+      </section>
+      <?php if(have_rows('sidebar_blocks')): ?>
         <?php while( have_rows('sidebar_blocks') ): the_row(); ?>
           <section>
             <h4><?php the_sub_field('section_heading') ?></h4>
@@ -44,7 +67,7 @@
             <?php endif; ?>
           </section>
         <?php endwhile; ?>
-      </aside>
-    <?php endif; ?>
+      <?php endif; ?>
+    </aside>
   </div>
 </div>
