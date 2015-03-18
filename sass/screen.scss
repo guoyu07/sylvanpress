@@ -411,6 +411,7 @@ header[role=banner]{
   position: relative;
   background: $almost-white;
   color: $black;
+  padding-bottom: 5em;
 }
 
 .breadcrumbs {
@@ -463,6 +464,23 @@ article {
     li {
       list-style-type: decimal;
     }
+  }
+}
+
+.post {
+  .entry-title {
+    margin-bottom: 0.25em;
+  }
+  .meta {
+    font-size: 0.8em;
+    a { color: $black; }
+  }
+  .post-footer {
+    @include clearfix;
+    border-bottom: 1px solid #CCC;
+    font-size: 0.8em;
+    padding-bottom: 1em;
+    .post-edit-link { float: right; }
   }
 }
 

@@ -12,9 +12,23 @@
  */
 
 get_header(); ?>
-
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+<?php if(has_post_thumbnail()): ?>
+	<div class="hero-page custom-background" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>);">
+<?php else: ?>
+  <div class="hero-page">
+<?php endif; ?>
+  <h2>Blog</h2>
+</div>
+<div class="page">
+  <div class="page-content">
+  <?php
+      $args = array(
+        'show_browse' => 'false',
+        'container' => 'div',
+        'separator' => '&raquo;'
+      );
+      breadcrumb_trail($args);
+    ?>
 
 		<?php if ( have_posts() ) : ?>
 
@@ -38,9 +52,7 @@ get_header(); ?>
 			<?php get_template_part( 'content', 'none' ); ?>
 
 		<?php endif; ?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-
-
+</div>
+</div>
+<?php get_sidebar(); ?>
 <?php get_footer(); ?>
