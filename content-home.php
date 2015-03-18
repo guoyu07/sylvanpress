@@ -6,7 +6,11 @@
  */
 ?>
 
+<?php if(has_post_thumbnail()): ?>
+  <div class="hero-home custom-background" style="background-image: url(<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>);">
+<?php else: ?>
   <div class="hero-home">
+<?php endif; ?>
     <div class="content">
       <h1><img src="<?=get_template_directory_uri()?>/images/logo-white-large.png" alt="Sylvan Gardens Landscape Contractors"></h1>
       <p class="intro"><?php the_field('company_description'); ?></p>

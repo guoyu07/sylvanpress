@@ -244,6 +244,15 @@ header[role=banner]{
   width: 100%;
   height: 90vh;
   min-height: 36.25em;
+  &.custom-background {
+    * { position: relative; }
+    &:before {
+      content: "";
+      width: 100%; height: 100%;
+      position: absolute; top: 0px; left: 0px;
+      background: rgba(0,0,0,0.5);
+    }
+  }
   @media (max-width: $screen-md){
     padding: 2em 0;
   }
