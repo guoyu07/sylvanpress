@@ -587,9 +587,12 @@ aside {
 }
 
 .before-after {
+  .gallery-entry-image {
+    order: 0 !important;
+  }
   .gallery-entry-description {
     width: 100%;
-    text-align: center;
+    text-align: center !important;
     padding: 1em;
     p { margin: 0 auto; }
   }
