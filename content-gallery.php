@@ -35,6 +35,11 @@
             <div class="gallery-entry-image">
               <img src="<?php the_sub_field('gallery_entry_image'); ?>" alt="">
             </div>
+            <?php if(get_sub_field('before_after')): ?>
+              <div class="gallery-entry-image">
+                <img src="<?php the_sub_field('gallery_entry_image_2'); ?>" alt="">
+              </div>
+            <?php endif; ?>
             <div class="gallery-entry-description">
               <p><?php the_sub_field('gallery_entry_description'); ?></p>
             </div>

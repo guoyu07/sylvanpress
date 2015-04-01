@@ -587,12 +587,21 @@ aside {
 }
 
 .before-after {
-  flex-direction: column;
+  .gallery-entry-description {
+    width: 100%;
+    text-align: center;
+    padding: 1em;
+    p { margin: 0 auto; }
+  }
   @media (min-width: $screen-md){
-    .gallery-entry-image { width: 100%; }
+    flex-direction: row;
+    flex-wrap: wrap;
+    .gallery-entry-image { width: 50%; }
     .gallery-entry-description {
+      width: 100%;
       text-align: center;
       padding: 1em;
+      p { margin: 0 auto; }
     }
   }
 }
