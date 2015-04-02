@@ -32,29 +32,24 @@
       <?php the_content(); ?>
     </article>
     <aside>
-      <section role="navigation">
-        <h4>In This Section</h4>
-        <ul class="nav-tree">
-          <?php
-            global $post;
-            $current_page_parent = ( $post->post_parent ? $post->post_parent : $post->ID );
-            wp_list_pages( array(
-              'title_li' => '',
-              'child_of' => $current_page_parent,
-              'depth' => '1' )
-            );
-          ?>
-        </ul>
-        <?php
-          // $id = get_the_ID();
-          // $args = array(
-          //   'child_of' => $id,
-          //   'title_li' => null,
-          //   'sort_column' => 'menu_order',
-          // );
-          // wp_list_pages($args);
-        ?>
-      </section>
+      <?php
+        $children = get_pages('child_of='.$post->ID);
+        if( count( $children ) != 0 ) : ?>
+        <section role="navigation">
+          <h4>In This Section</h4>
+          <ul class="nav-tree">
+            <?php
+              global $post;
+              $current_page_parent = ( $post->post_parent ? $post->post_parent : $post->ID );
+              wp_list_pages( array(
+                'title_li' => '',
+                'child_of' => $current_page_parent,
+                'depth' => '1' )
+              );
+            ?>
+          </ul>
+        </section>
+      <?php else : ?><?php endif; ?>
       <?php if(have_rows('sidebar_blocks')): ?>
         <?php while( have_rows('sidebar_blocks') ): the_row(); ?>
           <section>
